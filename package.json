@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "author": "StopMalwareContent Contributors",
   "scripts": {
-    "api": "pnpm --filter=smc-api",
-    "dash": "pnpm --filter=smc-dashboard",
-    "ext": "pnpm --filter=smc-extension"
+    "api:dev": "pnpm --filter=smc-api dev",
+    "dash:dev": "pnpm --filter=smc-dashboard dev",
+    "ext:dev": "pnpm --filter=smc-extension dev"
   },
   "license": "AGPL-3.0-only",
   "packageManager": "pnpm@10.17.1",
