@@ -9,6 +9,13 @@
       "type": "node-terminal"
     },
     {
+      "cwd": "${workspaceFolder}/apps/docs",
+      "command": "./node_modules/.bin/astro dev",
+      "name": "Docs development server",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
       "cwd": "${workspaceFolder}/apps/extension",
       "command": "./node_modules/.bin/vite dev",
       "name": "Extension development server",

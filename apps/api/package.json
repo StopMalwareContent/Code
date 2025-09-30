@@ -13,6 +13,9 @@
   "keywords": [],
   "license": "AGPL-3.0-only",
   "dependencies": {
+    "@highlight-run/node": "~3.12.22",
+    "dotenv": "~17.2.3",
+    "drizzle-orm": "~0.44.5",
     "express": "~5.1.0"
   },
   "devDependencies": {

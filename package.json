@@ -1,12 +1,13 @@
 {
   "name": "smc-root",
   "private": true,
-  "version": "1.0.0",
+  "version": "lodine.xyz",
   "author": "StopMalwareContent Contributors",
   "scripts": {
-    "api:dev": "pnpm --filter=smc-api dev",
-    "dash:dev": "pnpm --filter=smc-dashboard dev",
-    "ext:dev": "pnpm --filter=smc-extension dev",
+    "api": "pnpm --filter=smc-api",
+    "dash": "pnpm --filter=smc-dashboard",
+    "doc": "pnpm --filter=smc-docs",
+    "ext": "pnpm --filter=smc-extension",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write ."
   },
@@ -15,6 +16,7 @@
   "devDependencies": {
     "@changesets/cli": "~2.29.7",
     "prettier": "~3.6.2",
-    "prettier-plugin-astro": "0.14.1"
+    "prettier-plugin-astro": "0.14.1",
+    "typescript": "~5.9.2"
   }
 }
