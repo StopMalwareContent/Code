@@ -16,8 +16,8 @@
       "type": "node-terminal"
     },
     {
+      "preLaunchTask": "API Development",
       "cwd": "${workspaceFolder}/apps/api",
-      "command": "./node_modules/.bin/nodemon",
       "name": "API hot-reload development server",
       "request": "launch",
       "type": "node-terminal"
