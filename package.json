@@ -7,6 +7,6 @@
     "dash": "pnpm --filter=smc-dashboard",
     "ext": "pnpm --filter=smc-extension"
   },
-  "license": "AGPL-v3",
+  "license": "AGPL-3.0-only",
   "packageManager": "pnpm@10.17.1"
 }
