@@ -1,8 +1,9 @@
 {
   "name": "smc-dashboard",
   "private": true,
-  "type": "module",
   "version": "0.0.1",
+  "author": "StopMalwareContent Contributors",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

@@ -2,7 +2,7 @@
   "name": "smc-api",
   "private": true,
   "version": "1.0.0",
-  "description": "",
+  "author": "StopMalwareContent Contributors",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
@@ -11,7 +11,6 @@
     "build": "tsc -b"
   },
   "keywords": [],
-  "author": "StopMalwareContent contributors",
   "license": "AGPL-3.0-only",
   "dependencies": {
     "express": "~5.1.0"
