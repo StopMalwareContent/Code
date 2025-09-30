@@ -2,6 +2,11 @@
   "name": "smc-root",
   "version": "1.0.0",
   "author": "StopMalwareContent Contributors",
+  "scripts": {
+    "api": "pnpm --filter=smc-api",
+    "dash": "pnpm --filter=smc-dashboard",
+    "ext": "pnpm --filter=smc-extension"
+  },
   "license": "AGPL-v3",
   "packageManager": "pnpm@10.17.1"
 }
