@@ -20,4 +20,4 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Run code formatting check
-        run: pnpm exec prettier . --check
+        run: pnpm prettier:check
