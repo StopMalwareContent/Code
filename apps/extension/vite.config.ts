@@ -1,6 +1,6 @@
-import { defineConfig } from "vite";
-import { crx } from "@crxjs/vite-plugin";
-import manifest from "./manifest.json";
+import { defineConfig } from "vite"
+import { crx } from "@crxjs/vite-plugin"
+import manifest from "./manifest.json"
 
 export default defineConfig({
   plugins: [
@@ -10,4 +10,4 @@ export default defineConfig({
     // optionally tune outDir, rollupOptions if you have multiple HTML pages (popup/options)
     outDir: "dist"
   }
-});
+})

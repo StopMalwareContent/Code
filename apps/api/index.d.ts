@@ -1,4 +1,4 @@
 interface Env {
-    HOST: string;
-    PORT: number;
+  HOST: string
+  PORT: number
 }

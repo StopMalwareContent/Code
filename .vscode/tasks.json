@@ -1,72 +1,63 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "nodemon",
-            "type": "shell",
-            "command": "nodemon",
-            "group": "build",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "new"
-            },
-            "options": {
-                "cwd": "${workspaceFolder}/apps/api"
-            },
-            "problemMatcher": {
-                "owner": "nodemon",
-                "fileLocation": [
-                    "relative",
-                    "${workspaceFolder}/apps/api"
-                ],
-                "pattern": {
-                    "regexp": "^(.*):(\\d+):(\\d+)\\s+-\\s+(error|warning|info)\\s+(.*)$",
-                    "file": 1,
-                    "line": 2,
-                    "column": 3,
-                    "severity": 4,
-                    "message": 5
-                },
-                "background": {
-                    "activeOnStart": true,
-                    "beginsPattern": "^\\[nodemon\\] starting",
-                    "endsPattern": "^\\[nodemon\\] (clean exit|app crashed)"
-                }
-            },
-            "isBackground": true
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "nodemon",
+      "type": "shell",
+      "command": "nodemon",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}/apps/api"
+      },
+      "problemMatcher": {
+        "owner": "nodemon",
+        "fileLocation": ["relative", "${workspaceFolder}/apps/api"],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+)\\s+-\\s+(error|warning|info)\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
         },
-        {
-            "label": "TypeScript Watch",
-            "type": "shell",
-            "command": "tsc",
-            "args": [
-                "--noEmit",
-                "--watch"
-            ],
-            "group": "build",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "new"
-            },
-            "options": {
-                "cwd": "${workspaceFolder}/apps/api"
-            },
-            "problemMatcher": "$tsc-watch",
-            "isBackground": true
-        },
-        {
-            "label": "API Development",
-            "dependsOn": [
-                "nodemon",
-                "TypeScript Watch"
-            ],
-            "dependsOrder": "parallel",
-            "group": "build",
-            "problemMatcher": []
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^\\[nodemon\\] starting",
+          "endsPattern": "^\\[nodemon\\] (clean exit|app crashed)"
         }
-    ]
+      },
+      "isBackground": true
+    },
+    {
+      "label": "TypeScript Watch",
+      "type": "shell",
+      "command": "tsc",
+      "args": ["--noEmit", "--watch"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}/apps/api"
+      },
+      "problemMatcher": "$tsc-watch",
+      "isBackground": true
+    },
+    {
+      "label": "API Development",
+      "dependsOn": ["nodemon", "TypeScript Watch"],
+      "dependsOrder": "parallel",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
 }

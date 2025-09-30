@@ -1,22 +1,17 @@
 {
-    "restartable": "rs",
-    "ignore": [
-        ".git",
-        "node_modules/**/node_modules"
-    ],
-    "verbose": true,
-    "execMap": {
-        "ts": "tsx"
-    },
-    "events": {
-        "restart": "osascript -e 'display notification \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
-    },
-    "watch": [
-        "src/**/*.ts"
-    ],
-    "env": {
-        "NODE_ENV": "development"
-    },
-    "ext": "ts,json",
-    "exec": "tsx src/index.ts"
+  "restartable": "rs",
+  "ignore": [".git", "node_modules/**/node_modules"],
+  "verbose": true,
+  "execMap": {
+    "ts": "tsx"
+  },
+  "events": {
+    "restart": "osascript -e 'display notification \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
+  },
+  "watch": ["src/**/*.ts"],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "ts,json",
+  "exec": "tsx src/index.ts"
 }
