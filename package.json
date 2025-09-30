@@ -1,5 +1,6 @@
 {
   "name": "smc-root",
+  "private": true,
   "version": "1.0.0",
   "author": "StopMalwareContent Contributors",
   "scripts": {
@@ -8,5 +9,8 @@
     "ext": "pnpm --filter=smc-extension"
   },
   "license": "AGPL-3.0-only",
-  "packageManager": "pnpm@10.17.1"
+  "packageManager": "pnpm@10.17.1",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7"
+  }
 }
