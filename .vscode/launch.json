@@ -4,7 +4,21 @@
     {
       "cwd": "${workspaceFolder}/apps/dashboard",
       "command": "./node_modules/.bin/astro dev",
-      "name": "Development server",
+      "name": "Dashboard development server",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "cwd": "${workspaceFolder}/apps/extension",
+      "command": "./node_modules/.bin/vite dev",
+      "name": "Extension development server",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "cwd": "${workspaceFolder}/apps/api",
+      "command": "./node_modules/.bin/nodemon",
+      "name": "API hot-reload development server",
       "request": "launch",
       "type": "node-terminal"
     }

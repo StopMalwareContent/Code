@@ -1,0 +1,1 @@
+# StopMalwareContent Extension
