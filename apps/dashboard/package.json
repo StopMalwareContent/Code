@@ -12,6 +12,7 @@
     "prepare": "astro sync"
   },
   "dependencies": {
+    "@astrojs/node": "^9.4.4",
     "astro": "~5.14.1"
   }
 }

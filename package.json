@@ -10,7 +10,8 @@
     "docs": "pnpm run doc",
     "ext": "pnpm --filter=smc-extension",
     "prettier:check": "prettier --check .",
-    "prettier:fix": "prettier --write ."
+    "prettier:fix": "prettier --write .",
+    "start:dev": "pnpm -r run dev"
   },
   "license": "AGPL-3.0-only",
   "packageManager": "pnpm@10.17.1",
