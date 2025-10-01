@@ -1,0 +1,108 @@
+name: Publish extension
+
+on:
+    push:
+
+jobs:
+  changelog:
+    name: Changelog
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.parse-packages.outputs.parsed-packages }}
+      hasChangesets: ${{ steps.changesets.outputs.hasChangesets }}
+    steps:
+      - name: Checkout action
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Create Release Pull Request or Publish/Deploy
+        id: changesets
+        uses: changesets/action@v1.5.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Parse actions
+        if: ${{ steps.changesets.outputs.hasChangesets == 'false' }}
+        id: parse-packages
+        uses: StopMalwareContent/changeset-parser@v1
+        with:
+          bumped-packages: ${{ steps.changesets.outputs.publishedPackages }}
+
+  publish-extension:
+    name: Publish extension
+    needs: changelog
+    if: ${{ (needs.changelog.outputs.hasChangesets == 'false') && contains(needs.changelog.outputs.packages, 'smc-extension') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout action
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build extension
+        run: pnpm ext build # Upload, sign & publish coming later
+
+  deploy-dashboard:
+    name: Deploy dashboard
+    needs: changelog
+    if: ${{ (needs.changelog.outputs.hasChangesets == 'true') && contains(needs.changelog.outputs.packages, 'smc-dashboard') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout action
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build dashboard
+        run: pnpm dash build # Upload & deploy coming later
+
+  deploy-api:
+    name: Deploy API
+    needs: changelog
+    if: ${{ (needs.changelog.outputs.hasChangesets == 'true') && contains(needs.changelog.outputs.packages, 'smc-api') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout action
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build API
+        run: pnpm api build # Upload & deploy coming later
