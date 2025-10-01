@@ -34,7 +34,7 @@ jobs:
       - name: Parse actions
         if: ${{ steps.changesets.outputs.hasChangesets == 'false' }}
         id: parse-packages
-        uses: StopMalwareContent/changeset-parser@v1.1.1
+        uses: StopMalwareContent/changeset-parser@v1.0.0
         with:
           bumped-packages: ${{ steps.changesets.outputs.publishedPackages }}
 
