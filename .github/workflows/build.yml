@@ -4,88 +4,146 @@ on:
   pull_request:
 
 jobs:
-  extension:
-    name: Build extension
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+    extension:
+        name: Build extension
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v5
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+            - name: Cache Astro data # Speeds up postinstall time
+              uses: actions/cache@v4
+              with:
+                path: |
+                    **/.astro
+                key: smc-astro-cache-${{ github.repository }}
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: 22.x
-          cache: "pnpm"
-          cache-dependency-path: "./pnpm-lock.yaml"
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+            - name: Setup Node.js
+              uses: actions/setup-node@v5
+              with:
+                node-version: 22.x
+                cache: 'pnpm'
+                cache-dependency-path: './pnpm-lock.yaml'
 
-      - name: Build extension
-        run: pnpm ext build
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
 
-      - name: Upload extension
-        uses: actions/upload-artifact@v4
-        with:
-          name: SMC Extension ${{ github.sha }}
-          path: ./apps/extension/dist
+            - name: Build extension
+              run: pnpm ext build
 
-  dashboard:
-    name: Build dashboard
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+            - name: Upload extension
+              uses: actions/upload-artifact@v4
+              with:
+                name: SMC Extension ${{ github.sha }}
+                path: ./apps/extension/dist
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+    docs:
+        name: Build docs
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v5
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: 22.x
-          cache: "pnpm"
-          cache-dependency-path: "./pnpm-lock.yaml"
+            - name: Cache Astro data
+              uses: actions/cache@v4
+              with:
+                path: |
+                    **/.astro
+                key: smc-astro-cache-${{ github.repository }}
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
 
-      - name: Build extension
-        run: pnpm dash build
+            - name: Setup Node.js
+              uses: actions/setup-node@v5
+              with:
+                node-version: 22.x
+                cache: 'pnpm'
+                cache-dependency-path: './pnpm-lock.yaml'
 
-      - name: Upload extension
-        uses: actions/upload-artifact@v4
-        with:
-          name: SMC Dashboard ${{ github.sha }}
-          path: ./apps/dashboard/dist
-  api:
-    name: Build API
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+            - name: Build extension
+              run: pnpm doc build
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: 22.x
-          cache: "pnpm"
-          cache-dependency-path: "./pnpm-lock.yaml"
+            - name: Upload extension
+              uses: actions/upload-artifact@v4
+              with:
+                name: SMC Docs ${{ github.sha }}
+                path: ./apps/dashboard/dist
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+    dashboard:
+        name: Build dashboard
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v5
 
-      - name: Build extension
-        run: pnpm api build
+            - name: Cache Astro data
+              uses: actions/cache@v4
+              with:
+                path: |
+                    **/.astro
+                key: smc-astro-cache-${{ github.repository }}
 
-      - name: Upload extension
-        uses: actions/upload-artifact@v4
-        with:
-          name: SMC API ${{ github.sha }}
-          path: ./apps/api/dist
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v5
+              with:
+                node-version: 22.x
+                cache: 'pnpm'
+                cache-dependency-path: './pnpm-lock.yaml'
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Build extension
+              run: pnpm dash build
+
+            - name: Upload extension
+              uses: actions/upload-artifact@v4
+              with:
+                name: SMC Dashboard ${{ github.sha }}
+                path: ./apps/dashboard/dist
+
+    api:
+        name: Build API
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v5
+
+            - name: Cache Astro data # Speeds up postinstall time
+              uses: actions/cache@v4
+              with:
+                path: |
+                    **/.astro
+                key: smc-astro-cache-${{ github.repository }}
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v5
+              with:
+                node-version: 22.x
+                cache: 'pnpm'
+                cache-dependency-path: './pnpm-lock.yaml'
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Build extension
+              run: pnpm api build
+
+            - name: Upload extension
+              uses: actions/upload-artifact@v4
+              with:
+                name: SMC API ${{ github.sha }}
+                path: ./apps/api/dist

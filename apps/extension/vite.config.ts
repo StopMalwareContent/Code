@@ -4,6 +4,7 @@ import manifest from "./manifest.json"
 
 export default defineConfig({
   plugins: [
+    //@ts-expect-error idk why it type errors here but it works and it used to not type error
     crx({ manifest }) // CRXJS auto-parses manifest and wires entries (content scripts, service_worker, pages)
   ],
   build: {

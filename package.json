@@ -7,6 +7,7 @@
     "api": "pnpm --filter=smc-api",
     "dash": "pnpm --filter=smc-dashboard",
     "doc": "pnpm --filter=smc-docs",
+    "docs": "pnpm run doc",
     "ext": "pnpm --filter=smc-extension",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write ."
