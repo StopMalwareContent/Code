@@ -1,29 +1,29 @@
 {
-    "name": "StopMalwareContent Monorepo",
-    "build": {
-        "dockerfile": "Dockerfile"
+  "name": "StopMalwareContent Monorepo",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["README.md", "CONTRIBUTING.md"]
     },
-    "customizations": {
-        "codespaces": {
-            "openFiles": ["README.md", "CONTRIBUTING.md"]
-        },
-        "vscode": {
-            "extensions": ["astro-build.astro-vscode", "esbenp.prettier-vscode"]
-        }
-    },
-    "postCreateCommand": "pnpm install",
-    "postStartCommand": "pnpm start:dev",
-    "postAttachCommand": "pnpm audit",
-    "appPort": [4321, 3000],
-    "forwardPorts": [4321, 3000],
-    "portsAttributes": {
-        "4321": {
-            "label": "Dashboard",
-            "onAutoForward": "openPreview"
-        },
-        "3000": {
-            "label": "API",
-            "onAutoForward": "notify"
-        }
+    "vscode": {
+      "extensions": ["astro-build.astro-vscode", "esbenp.prettier-vscode"]
     }
+  },
+  "postCreateCommand": "pnpm install",
+  "postStartCommand": "pnpm start:dev",
+  "postAttachCommand": "pnpm audit",
+  "appPort": [4321, 3000],
+  "forwardPorts": [4321, 3000],
+  "portsAttributes": {
+    "4321": {
+      "label": "Dashboard",
+      "onAutoForward": "openPreview"
+    },
+    "3000": {
+      "label": "API",
+      "onAutoForward": "notify"
+    }
+  }
 }

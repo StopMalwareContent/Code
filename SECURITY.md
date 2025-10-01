@@ -14,4 +14,5 @@ You can submit a security vulnerability via GitHub. On the security page, choose
 These details will be shared only with the StopMalwareContent core team, and not anyone else.
 
 <!-- markdownlint-disable -->
+
 **DO NOT REPORT SECURITY ISSUES VIA GITHUB ISSUES. DOING SO WILL PUBLICLY EXPOSE THE ISSUE.**
