@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a site
+    url: https://smc.example.com/report
+    about: Report a site using this link, or request a site review.
+  - name: Security issues
+    url: https://github.com/StopMalwareContent/Code/security
+    about: DO NOT REPORT SECURITY ISSUES PUBLICLY, instead please visit this link.

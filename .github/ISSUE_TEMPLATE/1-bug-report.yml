@@ -1,0 +1,109 @@
+name: "Bug report"
+description: "Use this form to report bugs found in the monorepo (browser extension, dashboard, or API). Please provide reproduction steps, environment, and any logs or screenshots."
+title: "[bug] "
+labels:
+  - "bug"
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Thanks for filing a bug! To help us triage and fix this quickly, please fill out the fields below with as much detail as you can. If the bug affects multiple components, please create one report per component when possible.
+
+  - type: input
+    id: short_description
+    attributes:
+      label: "Short description"
+      description: "A one-line summary of the bug."
+      placeholder: "e.g. Extension crashes when using X feature"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: "Affected component"
+      description: "Which part does this bug affect?"
+      options:
+        - Extension
+        - Dashboard
+        - API
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: "Steps to reproduce"
+      description: "Step-by-step instructions to reproduce the bug (include exact menu selections, inputs, or API calls)."
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: "Expected behavior"
+      description: "What you expected to happen."
+      placeholder: "Describe the intended behaviour here."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: "Actual behavior"
+      description: "What actually happened (include error messages, incorrect UI state, etc.)."
+    validations:
+      required: true
+
+  - type: input
+    id: version_or_sha
+    attributes:
+      label: "Version"
+      description: "Version where the bug was observed. If unknown, leave blank."
+      placeholder: "e.g. v1.2.3"
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: "Environment (browser / OS / Node / DB)"
+      description: "Browser and OS for extension/dashboard (e.g. Chrome 116 on macOS 14), or runtime details for the API (Node version, DB)."
+      placeholder: "e.g. Chrome 116 / macOS 14.1 or Node 18 / Postgres 15"
+
+  - type: checkboxes
+    id: severity
+    attributes:
+      label: "Severity (how badly does this block usage?)"
+      options:
+        - label: "Blocker — blocks core functionality"
+        - label: "High — major feature broken"
+        - label: "Medium — partial loss of functionality"
+        - label: "Low — minor issue / cosmetic"
+
+  - type: textarea
+    id: logs_and_traces
+    attributes:
+      label: "Relevant logs / stack traces / network requests"
+      render: shell
+      description: "Paste logs, stack traces, or curl requests here. Wrap code with triple backticks. For large files, attach them below."
+      placeholder: "Error: ...\n  at ..."
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: "Screenshots, recordings, or other files"
+      description: "Attach screenshots, HAR files, recordings, or other helpful files."
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "Additional context"
+      description: "Anything else that might help (related issues, recent changes, reproducibility frequency)."
+
+  - type: markdown
+    attributes:
+      value: >
+        **Thanks!** After submitting, the maintainers will triage the issue. If your report includes sensitive data (API keys, personal data), please remove or redact it before attaching.

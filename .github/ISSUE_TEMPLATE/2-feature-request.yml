@@ -1,0 +1,91 @@
+name: "Feature request"
+description: "Request a new feature or improvement for the monorepo (browser extension, dashboard, or API). Include motivation, proposed design, and acceptance criteria when possible."
+title: "[feat]"
+labels:
+  - "enhancement"
+  - "feature-request"
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Thanks for suggesting a feature! To help us evaluate and prioritise it, please provide use cases, a proposed solution (or mockups), and an idea of scope/effort.
+
+  - type: input
+    id: short_description
+    attributes:
+      label: "Short description"
+      description: "One-line summary of the feature."
+      placeholder: "e.g. Add dark-mode toggle to dashboard"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: "Affected component"
+      description: "Which part of the monorepo would this feature touch?"
+      multiple: true
+      options:
+        - Extension
+        - Dashboard
+        - API
+    validations:
+      required: true
+
+  - type: textarea
+    id: user_story
+    attributes:
+      label: "Use cases"
+      description: "Who benefits and how? Provide concrete scenarios."
+      placeholder: "As a <role>, I want <feature> so that <benefit>."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: "Proposed solution / design"
+      description: "Describe how the feature could be implemented. Include API shape, UI mockups, or acceptance criteria if available."
+      placeholder: "Describe endpoints, UI changes, or provide a quick sketch."
+
+  - type: textarea
+    id: success_criteria
+    attributes:
+      label: "Success / acceptance criteria"
+      description: "How will we know this feature is complete? List measurable criteria."
+      placeholder: "e.g. Toggle persists across sessions; API returns x/y; unit tests cover …"
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Alternatives considered"
+      description: "Other approaches you considered and why this one is preferred."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: estimated_effort
+    attributes:
+      label: "Estimated implementation effort"
+      options:
+        - Small (patch)
+        - Medium (minor)
+        - Large (major)
+
+  - type: input
+    id: related_issues
+    attributes:
+      label: "Related issues / PRs"
+      description: "Comma-separated list of related issue numbers or PRs (optional)."
+      placeholder: "#123, #456"
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "Additional context"
+      description: "Anything else that will help reviewers (mostly timing constraints)."
+
+  - type: markdown
+    attributes:
+      value: >
+        **Thanks!** After submitting, maintainers will review for scope and prioritisation. If the feature includes any sensitive data please redact it before attaching.
