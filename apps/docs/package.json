@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prepare": "astro sync"
+    "prepare": "astro sync || true"
   },
   "dependencies": {
     "@astrojs/starlight": "~0.36.0",
