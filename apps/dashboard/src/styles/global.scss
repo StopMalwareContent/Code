@@ -17,7 +17,8 @@ a {
   color: #f38ba8;
 }
 
-a,button {
+a,
+button {
   &:hover {
     cursor: pointer;
     opacity: 0.7;
@@ -31,14 +32,16 @@ nav {
   background: #313244;
   height: 64px;
 
-  span, code, ul {
+  span,
+  code,
+  ul {
     display: flex;
     align-items: center;
   }
 
   code {
     display: inline-flex;
-    margin-left: .5em;
+    margin-left: 0.5em;
     color: #a6adc8;
   }
 
