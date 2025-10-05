@@ -1,6 +1,8 @@
 ---
 import "../styles/global.scss"
 import "../styles/fonts.scss"
+
+import { CF_PAGES_COMMIT_SHA } from "astro:env/client"
 ---
 
 <!doctype html>
@@ -15,13 +17,7 @@ import "../styles/fonts.scss"
   <body>
     <nav>
       <span>@smc/dashboard</span>
-      <code
-        >{
-          import.meta.env.CF_PAGES_COMMIT_SHA
-            ? (import.meta.env.CF_PAGES_COMMIT_SHA as string).substring(0, 7)
-            : "a1b2c3d"
-        }</code
-      >
+      <code>{CF_PAGES_COMMIT_SHA}</code>
       <ul>
         <li>
           <a href="/">home</a>
