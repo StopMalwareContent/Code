@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro"
+
+interface Props {
+  error: unknown
+}
+
+const { error } = Astro.props
+---
+
+<Layout>
+  <main>
+    <h1>500</h1>
+    <p>{error instanceof Error ? error.message : "Unknown Error"}</p>
+  </main>
+</Layout>
+
+<style>
+  main {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 4em;
+  }
+</style>
