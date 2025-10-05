@@ -1,15 +1,14 @@
 // @ts-check
 import { defineConfig } from "astro/config"
 
-import node from "@astrojs/node"
+import cloudflare from "@astrojs/cloudflare"
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://dash.smc.lodine.xyz",
   server: {
     port: 5000
   },
-
-  adapter: node({
-    mode: "standalone"
-  })
+  output: "server",
+  adapter: cloudflare()
 })

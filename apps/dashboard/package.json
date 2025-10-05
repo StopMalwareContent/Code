@@ -12,6 +12,7 @@
     "prepare": "astro sync || true"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.9",
     "@astrojs/node": "^9.4.4",
     "astro": "~5.14.1",
     "sass": "^1.93.2"
